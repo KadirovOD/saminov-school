@@ -1,0 +1,13 @@
+{
+  "name": "saminov-school",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Saminov School — Quva xususiy maktab qabul sayti",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

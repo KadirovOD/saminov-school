@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saminov School — Qabul 2026 | Quva Xususiy Maktab</title>
+  <meta name="description" content="Saminov School — Quva tumanidagi xalqaro standartdagi xususiy maktab. 0–11 sinflarga qabul ochiq. Natijani kafolatlaymiz." />
+  <meta name="theme-color" content="#0A1A33" />
+  <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+  <link rel="apple-touch-icon" href="/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <meta property="og:title" content="Saminov School — Qabul 2026" />
+  <meta property="og:description" content="Xalqaro standartdagi xususiy maktab. 0–11 sinflarga qabul ochiq." />
+  <meta property="og:image" content="/logo.jpg" />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Saminov School">
+        <img src="/logo.jpg" alt="Saminov School logo" class="brand-logo" />
+        <span class="brand-text">
+          <strong>Saminov</strong>
+          <span>School</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Asosiy menyu">
+        <a href="#about">Maktab haqida</a>
+        <a href="#features">Imkoniyatlar</a>
+        <a href="#why">Nima uchun biz</a>
+        <a href="#contact">Aloqa</a>
+      </nav>
+      <a href="#form" class="btn btn-primary nav-cta">Qabulga yozilish</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="dot"></span> Qabul ochiq — 2026/2027 o'quv yili
+        </div>
+        <h1>
+          <span class="hero-accent">Qabul</span> boshlandi.
+          <br />
+          Farzandingiz uchun <span class="hero-underline">eng yaxshi</span> ta'lim.
+        </h1>
+        <p class="hero-sub">
+          Saminov School — Quva tumanidagi xalqaro standartdagi xususiy maktab.
+          <br />
+          O'zbek va rus sinflari. 0–11 sinflarga qabul ochiq.
+        </p>
+        <div class="hero-ctas">
+          <a href="#form" class="btn btn-primary btn-lg">Hozir yoziling →</a>
+          <a href="#features" class="btn btn-ghost btn-lg">Batafsil ma'lumot</a>
+        </div>
+        <ul class="hero-tags">
+          <li><span class="flag">UZ</span><span class="flag">RU</span> sinflarga</li>
+          <li><span class="star">★</span> 0–11 sinflar</li>
+          <li><span class="bus">🚌</span> Bepul transport</li>
+          <li><span class="meal">🍽</span> 4 mahal ovqat</li>
+        </ul>
+      </div>
+
+      <!-- FORM CARD -->
+      <aside class="form-card" id="form">
+        <div class="form-card-head">
+          <span class="badge">Online qabul</span>
+          <h2>Qabulga yoziling</h2>
+          <p>Formani to'ldiring, biz 24 soat ichida bog'lanamiz.</p>
+        </div>
+        <form id="enrollForm" class="enroll-form" novalidate>
+          <label class="field">
+            <span class="field-label">Ota-ona ismi <em>*</em></span>
+            <input
+              type="text"
+              name="parentName"
+              required
+              minlength="2"
+              maxlength="80"
+              placeholder="Ism Familiya"
+              autocomplete="name"
+            />
+            <span class="field-error" data-for="parentName"></span>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Farzandingiz sinfi <em>*</em></span>
+            <select name="grade" required>
+              <option value="">Sinfni tanlang</option>
+              <option value="0">0-sinf (maktabga tayyorlov)</option>
+              <option value="1">1-sinf</option>
+              <option value="2">2-sinf</option>
+              <option value="3">3-sinf</option>
+              <option value="4">4-sinf</option>
+              <option value="5">5-sinf</option>
+              <option value="6">6-sinf</option>
+              <option value="7">7-sinf</option>
+              <option value="8">8-sinf</option>
+              <option value="9">9-sinf</option>
+              <option value="10">10-sinf</option>
+              <option value="11">11-sinf</option>
+            </select>
+            <span class="field-error" data-for="grade"></span>
+          </label>
+
+          <label class="field">
+            <span class="field-label">Bog'lanish uchun raqam <em>*</em></span>
+            <input
+              type="tel"
+              name="phone"
+              required
+              placeholder="+998 ( __ ) ___ - __ - __"
+              autocomplete="tel"
+              inputmode="tel"
+              id="phoneInput"
+            />
+            <span class="field-error" data-for="phone"></span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitBtn">
+            <span class="btn-text">Arizani yuborish</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="form-foot">
+            Yuborish orqali siz bilan bog'lanishimizga rozilik bildirasiz.
+          </p>
+        </form>
+
+        <!-- SUCCESS STATE -->
+        <div class="form-success" id="formSuccess" hidden>
+          <div class="success-circle" aria-hidden="true">✓</div>
+          <h3>Arizangiz qabul qilindi!</h3>
+          <p>Mas'ul xodimimiz tez orada siz bilan bog'lanadi. Saminov School oilasiga xush kelibsiz!</p>
+          <button type="button" class="btn btn-ghost" id="resetBtn">Yana ariza yuborish</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Maktab statistikasi">
+    <div class="container stats-grid">
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">O'quv sinflari</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Tajribali ustozlar</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Natija kafolati</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">UZ/RU</div>
+        <div class="stat-label">Ikki tilda ta'lim</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="section-head">
+        <span class="eyebrow">Maktab haqida</span>
+        <h2>Xalqaro standartdagi <span class="text-accent">xususiy maktab</span></h2>
+        <p>
+          Saminov School — Quvada joylashgan, zamonaviy uslublar va xalqaro
+          standartlar asosida faoliyat yurituvchi xususiy ta'lim muassasasi.
+          Bizning maqsadimiz — har bir o'quvchi o'z salohiyatini to'liq
+          ochishi, mustahkam bilim va yorqin kelajakka ega bo'lishidir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Imkoniyatlar</span>
+        <h2>O'quvchilarimiz uchun <span class="text-accent">eng yaxshi sharoit</span></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">🏫</div>
+          <h3>Natija kafolati</h3>
+          <p>Har bir o'quvchining natijasini kafolatlaymiz va doimiy monitoring olib boramiz.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌍</div>
+          <h3>Xalqaro standart</h3>
+          <p>Xalqaro ta'lim standartlari asosidagi o'quv dasturi va metodikalar.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🍽️</div>
+          <h3>4 mahal ovqat</h3>
+          <p>Mutaxassis nutritsiologlar tomonidan tuzilgan, sog'lom va to'yimli ovqatlanish.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚌</div>
+          <h3>Bepul transport</h3>
+          <p>Maktabga va uydan — qulay, xavfsiz transport xizmati barcha o'quvchilar uchun.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📚</div>
+          <h3>0–11 sinflar</h3>
+          <p>Maktabga tayyorlovdan tortib bitiruv sinfigacha to'liq ta'lim bosqichlari.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>Tajribali ustozlar</h3>
+          <p>Yuqori malakali, sertifikatga ega, doimiy yangilanib turadigan o'qituvchilar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="container why-inner">
+      <div class="why-left">
+        <span class="eyebrow">Nima uchun Saminov School?</span>
+        <h2>
+          Farzandingiz uchun <br />
+          <span class="text-accent">mustahkam poydevor.</span>
+        </h2>
+        <ul class="why-list">
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Individual yondashuv</strong>
+              <p>Har bir o'quvchining iqtidori va qiziqishi inobatga olinadi.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Zamonaviy texnologiyalar</strong>
+              <p>Smart-sinflar, interaktiv jihozlar va raqamli ta'lim resurslari.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Til muhiti</strong>
+              <p>Ingliz tili — kuchaytirilgan dastur, rus tilidagi sinflar mavjud.</p>
+            </div>
+          </li>
+          <li>
+            <span class="check">✓</span>
+            <div>
+              <strong>Xavfsiz muhit</strong>
+              <p>Doimiy nazorat, tibbiy xodim va kameralar bilan ta'minlangan hudud.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="#form" class="btn btn-primary btn-lg">Hoziroq arizangizni yuboring</a>
+      </div>
+      <div class="why-right" aria-hidden="true">
+        <div class="why-card card-1">
+          <div class="why-card-num">№1</div>
+          <div class="why-card-text">Quva tumani xususiy maktablari orasida</div>
+        </div>
+        <div class="why-card card-2">
+          <div class="why-card-num">21K+</div>
+          <div class="why-card-text">Instagram kuzatuvchilari va ko'rishlar</div>
+        </div>
+        <div class="why-card card-3">
+          <div class="why-card-num">100%</div>
+          <div class="why-card-text">Ota-onalar tomonidan tavsiya etilgan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container cta-inner">
+      <h2>Joylar cheklangan. Hoziroq yoziling!</h2>
+      <p>Farzandingiz uchun eng yaxshi tanlovni qiling.</p>
+      <a href="#form" class="btn btn-primary btn-lg">Qabulga yozilish →</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="/logo.jpg" alt="Saminov School" class="footer-logo" />
+        <div>
+          <strong>Saminov School</strong>
+          <p>Quva tumani xususiy maktabi. Xalqaro standartdagi ta'lim.</p>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Aloqa</h4>
+        <a href="tel:+998901234567">+998 (90) 123-45-67</a>
+        <a href="https://www.instagram.com/saminov.school" target="_blank" rel="noopener">Instagram: @saminov.school</a>
+      </div>
+      <div class="footer-col">
+        <h4>Manzil</h4>
+        <p>Farg'ona viloyati,<br />Quva tumani</p>
+      </div>
+      <div class="footer-col">
+        <h4>Ish vaqti</h4>
+        <p>Dushanba — Shanba<br />08:00 — 18:00</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Saminov School. Barcha huquqlar himoyalangan.</span>
+    </div>
+  </footer>
+
+  <script src="/script.js" defer></script>
+</body>
+</html>
