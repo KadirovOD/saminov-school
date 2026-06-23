@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qabulga yozilish — Saminov School</title>
+  <meta name="description" content="Saminov School — Quva xususiy maktab qabul formasi. 0–11 sinflarga ariza." />
+  <meta name="theme-color" content="#0A1A33" />
+  <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+  <link rel="apple-touch-icon" href="/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: #0A1A33;
+      color: #E8ECF4;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 18px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(230, 57, 70, 0.18), transparent 45%),
+        radial-gradient(circle at 95% 75%, rgba(27, 58, 117, 0.55), transparent 55%),
+        linear-gradient(180deg, #0A1A33 0%, #050E1F 100%);
+    }
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+    .brand img {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1; }
+    .brand-text strong { font-size: 19px; letter-spacing: -0.3px; color: #fff; }
+    .brand-text span {
+      font-size: 11px;
+      color: #B7BFD0;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .form-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 45, 92, 0.85), rgba(10, 26, 51, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 20px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.6), transparent 50%, rgba(255, 255, 255, 0.1));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .form-head { margin-bottom: 24px; text-align: center; }
+    .badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #E63946;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .form-head h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .form-head p {
+      font-size: 14px;
+      color: #B7BFD0;
+    }
+
+    form { display: flex; flex-direction: column; gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #B7BFD0;
+      letter-spacing: 0.2px;
+    }
+    .field-label em { color: #E63946; font-style: normal; }
+
+    .field input,
+    .field select {
+      width: 100%;
+      background: rgba(5, 14, 31, 0.6);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #fff;
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      outline: none;
+      font-family: inherit;
+    }
+    .field input::placeholder { color: #6F7B95; }
+    .field input:hover,
+    .field select:hover { border-color: rgba(255, 255, 255, 0.2); }
+    .field input:focus,
+    .field select:focus {
+      border-color: #E63946;
+      background: rgba(5, 14, 31, 0.85);
+      box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.15);
+    }
+    .field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23B7BFD0' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 44px;
+    }
+    .field select option { background: #0E2244; color: #fff; }
+
+    .field.invalid input,
+    .field.invalid select {
+      border-color: #E63946;
+      background: rgba(230, 57, 70, 0.06);
+    }
+    .field-error {
+      display: none;
+      font-size: 12.5px;
+      color: #FF4F5E;
+      font-weight: 500;
+    }
+    .field.invalid .field-error { display: block; }
+
+    .submit-btn {
+      position: relative;
+      width: 100%;
+      margin-top: 6px;
+      padding: 16px 28px;
+      background: #E63946;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 12px 32px -8px rgba(230, 57, 70, 0.45);
+      font-family: inherit;
+    }
+    .submit-btn:hover {
+      background: #FF4F5E;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px -10px rgba(230, 57, 70, 0.6);
+    }
+    .submit-btn:active { transform: translateY(1px); }
+    .submit-btn[disabled] { opacity: 0.85; cursor: wait; }
+    .submit-btn .spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2.5px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .submit-btn.loading .btn-text { opacity: 0; }
+    .submit-btn.loading .spinner { display: block; }
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .form-foot {
+      font-size: 12px;
+      color: #6F7B95;
+      text-align: center;
+      margin-top: 4px;
+    }
+
+    .success {
+      text-align: center;
+      padding: 12px 0;
+    }
+    .success-circle {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      color: white;
+      box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.5);
+      animation: bounce 0.5s ease;
+    }
+    @keyframes bounce {
+      0% { transform: scale(0); }
+      60% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .success h2 {
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .success p {
+      color: #B7BFD0;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+    .reset-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14.5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .reset-btn:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 18px 14px; }
+      .form-card { padding: 28px 22px; }
+      .form-head h1 { font-size: 24px; }
+      .brand img { width: 46px; height: 46px; }
+      .brand-text strong { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="brand">
+      <img src="/logo.jpg" alt="Saminov School" />
+      <div class="brand-text">
+        <strong>Saminov</strong>
+        <span>School</span>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div class="form-head">
+        <span class="badge">Online qabul</span>
+        <h1>Qabulga yoziling</h1>
+        <p>Formani to'ldiring, biz 24 soat ichida bog'lanamiz.</p>
+      </div>
+
+      <form id="enrollForm" novalidate>
+        <label class="field">
+          <span class="field-label">Ota-ona ismi <em>*</em></span>
+          <input
+            type="text"
+            name="parentName"
+            required
+            minlength="2"
+            maxlength="80"
+            placeholder="Ism Familiya"
+            autocomplete="name"
+          />
+          <span class="field-error"></span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Farzandingiz sinfi <em>*</em></span>
+          <select name="grade" required>
+            <option value="">Sinfni tanlang</option>
+            <option value="0">0-sinf (maktabga tayyorlov)</option>
+            <option value="1">1-sinf</option>
+            <option value="2">2-sinf</option>
+            <option value="3">3-sinf</option>
+            <option value="4">4-sinf</option>
+            <option value="5">5-sinf</option>
+            <option value="6">6-sinf</option>
+            <option value="7">7-sinf</option>
+            <option value="8">8-sinf</option>
+            <option value="9">9-sinf</option>
+            <option value="10">10-sinf</option>
+            <option value="11">11-sinf</option>
+          </select>
+          <span class="field-error"></span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Bog'lanish uchun raqam <em>*</em></span>
+          <input
+            type="tel"
+            name="phone"
+            required
+            placeholder="+998 ( __ ) ___ - __ - __"
+            autocomplete="tel"
+            inputmode="tel"
+            id="phoneInput"
+          />
+          <span class="field-error"></span>
+        </label>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Arizani yuborish</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+
+        <p class="form-foot">
+          Yuborish orqali siz bilan bog'lanishimizga rozilik bildirasiz.
+        </p>
+      </form>
+
+      <div class="success" id="formSuccess" hidden>
+        <div class="success-circle" aria-hidden="true">✓</div>
+        <h2>Arizangiz qabul qilindi!</h2>
+        <p>Mas'ul xodimimiz tez orada siz bilan bog'lanadi. Saminov School oilasiga xush kelibsiz!</p>
+        <button type="button" class="reset-btn" id="resetBtn">Yana ariza yuborish</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('enrollForm');
+    const successEl = document.getElementById('formSuccess');
+    const submitBtn = document.getElementById('submitBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const phoneInput = document.getElementById('phoneInput');
+
+    function formatPhone(raw) {
+      let digits = raw.replace(/\D/g, '');
+      if (digits.startsWith('998')) digits = digits.slice(3);
+      digits = digits.slice(0, 9);
+      let out = '+998';
+      if (digits.length > 0) out += ' (' + digits.slice(0, 2);
+      if (digits.length >= 2) out += ')';
+      if (digits.length >= 2) out += ' ' + digits.slice(2, 5);
+      if (digits.length >= 5) out += '-' + digits.slice(5, 7);
+      if (digits.length >= 7) out += '-' + digits.slice(7, 9);
+      return out;
+    }
+
+    phoneInput.addEventListener('focus', () => {
+      if (!phoneInput.value) phoneInput.value = '+998 ';
+    });
+    phoneInput.addEventListener('input', (e) => {
+      e.target.value = formatPhone(e.target.value);
+    });
+    phoneInput.addEventListener('blur', () => {
+      const v = phoneInput.value.trim();
+      if (v === '+998' || v === '+998 (' || v === '+998 ') phoneInput.value = '';
+    });
+
+    function setFieldError(name, message) {
+      const field = form.querySelector(`[name="${name}"]`).closest('.field');
+      const errorEl = field.querySelector('.field-error');
+      if (message) { field.classList.add('invalid'); errorEl.textContent = message; }
+      else { field.classList.remove('invalid'); errorEl.textContent = ''; }
+    }
+
+    function validate(data) {
+      let ok = true;
+      if (!data.parentName || data.parentName.trim().length < 2) {
+        setFieldError('parentName', 'Ism va familiya kiriting (kamida 2 ta belgi)'); ok = false;
+      } else setFieldError('parentName', '');
+      if (!data.grade) { setFieldError('grade', 'Farzandingiz sinfini tanlang'); ok = false; }
+      else setFieldError('grade', '');
+      const digits = (data.phone || '').replace(/\D/g, '');
+      if (digits.length !== 12 || !digits.startsWith('998')) {
+        setFieldError('phone', "To'liq telefon raqamini kiriting: +998 (__) ___-__-__"); ok = false;
+      } else setFieldError('phone', '');
+      return ok;
+    }
+
+    form.querySelectorAll('input, select').forEach((el) => {
+      el.addEventListener('input', () => el.closest('.field')?.classList.remove('invalid'));
+      el.addEventListener('change', () => el.closest('.field')?.classList.remove('invalid'));
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const data = {
+        parentName: (fd.get('parentName') || '').toString().trim(),
+        grade: (fd.get('grade') || '').toString().trim(),
+        phone: (fd.get('phone') || '').toString().trim(),
+      };
+      if (!validate(data)) {
+        form.querySelector('.field.invalid input, .field.invalid select')?.focus();
+        return;
+      }
+
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...data,
+            source: 'qabul-form-page',
+            ts: new Date().toISOString(),
+          }),
+        });
+        if (!res.ok) {
+          const txt = await res.text().catch(() => '');
+          throw new Error(txt || 'Server error');
+        }
+        form.hidden = true;
+        successEl.hidden = false;
+      } catch (err) {
+        alert("Yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring.");
+        console.error('submit error:', err);
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      form.reset();
+      form.hidden = false;
+      successEl.hidden = true;
+      form.querySelectorAll('.field.invalid').forEach((f) => f.classList.remove('invalid'));
+    });
+  </script>
+</body>
+</html>
