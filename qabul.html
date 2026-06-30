@@ -238,15 +238,15 @@
       padding: 12px 0;
     }
     .success-circle {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 20px;
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 22px;
       border-radius: 50%;
       background: linear-gradient(135deg, #10B981, #059669);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 38px;
+      font-size: 42px;
       color: white;
       box-shadow: 0 12px 32px -8px rgba(16, 185, 129, 0.5);
       animation: bounce 0.5s ease;
@@ -257,32 +257,83 @@
       100% { transform: scale(1); }
     }
     .success h2 {
-      font-size: 23px;
+      font-size: 25px;
       font-weight: 800;
       margin-bottom: 10px;
       color: #fff;
+      letter-spacing: -0.4px;
     }
-    .success p {
+    .success > p {
       color: #B7BFD0;
       margin-bottom: 22px;
       font-size: 15px;
     }
-    .reset-btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background: transparent;
+    .tg-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(34, 158, 217, 0.18), rgba(34, 158, 217, 0.06));
+      border: 1px solid rgba(34, 158, 217, 0.35);
+      border-radius: 14px;
+    }
+    .tg-cta-text {
+      font-size: 13.5px;
+      color: #D8E0EC;
+      line-height: 1.5;
+    }
+    .tg-cta-text strong { color: #fff; }
+    .tg-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 22px;
+      background: #229ED9;
       color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border: none;
       border-radius: 12px;
       font-weight: 700;
-      font-size: 14.5px;
+      font-size: 15.5px;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 10px 28px -8px rgba(34, 158, 217, 0.55);
+      font-family: inherit;
+    }
+    .tg-btn:hover {
+      background: #2BAEEB;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px -10px rgba(34, 158, 217, 0.7);
+    }
+    .tg-btn:active { transform: translateY(1px); }
+    .tg-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .tg-countdown {
+      font-size: 12px;
+      color: #8A95AD;
+      margin-top: 4px;
+    }
+    .tg-countdown b { color: #fff; font-weight: 700; }
+    .reset-btn {
+      display: inline-block;
+      padding: 11px 22px;
+      background: transparent;
+      color: #B7BFD0;
+      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 13.5px;
       cursor: pointer;
       transition: all 0.15s ease;
       font-family: inherit;
     }
     .reset-btn:hover {
-      border-color: rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.3);
       background: rgba(255, 255, 255, 0.04);
+      color: #fff;
     }
 
     @media (max-width: 480px) {
@@ -375,7 +426,23 @@
       <div class="success" id="formSuccess" hidden>
         <div class="success-circle" aria-hidden="true">✓</div>
         <h2>Arizangiz qabul qilindi!</h2>
-        <p>Mas'ul xodimimiz tez orada siz bilan bog'lanadi. Saminov School oilasiga xush kelibsiz!</p>
+        <p>Mas'ul xodimimiz tez orada siz bilan bog'lanadi.</p>
+
+        <div class="tg-cta">
+          <div class="tg-cta-text">
+            <strong>Telegram kanalimizga qo'shiling</strong> — yangiliklar, e'lonlar va qabul jarayoni haqida birinchi bo'lib xabar oling.
+          </div>
+          <a href="https://t.me/saminov_maktabi" class="tg-btn" id="tgBtn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            Telegram kanaliga o'tish
+          </a>
+          <div class="tg-countdown" id="tgCountdown">
+            Avtomatik yo'naltirish: <b id="tgSeconds">5</b> soniya...
+          </div>
+        </div>
+
         <button type="button" class="reset-btn" id="resetBtn">Yana ariza yuborish</button>
       </div>
     </div>
@@ -387,6 +454,9 @@
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
     const phoneInput = document.getElementById('phoneInput');
+    const TG_CHANNEL_URL = 'https://t.me/saminov_maktabi';
+    const REDIRECT_SECONDS = 5;
+    let redirectTimer = null;
 
     function formatPhone(raw) {
       let digits = raw.replace(/\D/g, '');
@@ -470,6 +540,7 @@
         }
         form.hidden = true;
         successEl.hidden = false;
+        startTelegramRedirect();
       } catch (err) {
         alert("Yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring.");
         console.error('submit error:', err);
@@ -480,11 +551,43 @@
     });
 
     resetBtn.addEventListener('click', () => {
+      cancelTelegramRedirect();
       form.reset();
       form.hidden = false;
       successEl.hidden = true;
       form.querySelectorAll('.field.invalid').forEach((f) => f.classList.remove('invalid'));
     });
+
+    function startTelegramRedirect() {
+      const secEl = document.getElementById('tgSeconds');
+      const countdownEl = document.getElementById('tgCountdown');
+      let remaining = REDIRECT_SECONDS;
+      secEl.textContent = remaining;
+
+      redirectTimer = setInterval(() => {
+        remaining -= 1;
+        if (remaining <= 0) {
+          clearInterval(redirectTimer);
+          redirectTimer = null;
+          countdownEl.textContent = 'Yo\'naltirilmoqda...';
+          window.location.href = TG_CHANNEL_URL;
+        } else {
+          secEl.textContent = remaining;
+        }
+      }, 1000);
+
+      // Agar foydalanuvchi tugmani bossa, taymerni to'xtatamiz (yangi tabga ochiladi)
+      document.getElementById('tgBtn').addEventListener('click', cancelTelegramRedirect, { once: true });
+    }
+
+    function cancelTelegramRedirect() {
+      if (redirectTimer) {
+        clearInterval(redirectTimer);
+        redirectTimer = null;
+        const countdownEl = document.getElementById('tgCountdown');
+        if (countdownEl) countdownEl.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>

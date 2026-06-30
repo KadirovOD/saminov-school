@@ -34,6 +34,9 @@ const form = document.getElementById('enrollForm');
 const successEl = document.getElementById('formSuccess');
 const submitBtn = document.getElementById('submitBtn');
 const resetBtn = document.getElementById('resetBtn');
+const TG_CHANNEL_URL = 'https://t.me/saminov_maktabi';
+const REDIRECT_SECONDS = 5;
+let redirectTimer = null;
 
 function setFieldError(name, message) {
   const field = form.querySelector(`[name="${name}"]`).closest('.field');
@@ -118,6 +121,7 @@ form?.addEventListener('submit', async (e) => {
     form.hidden = true;
     successEl.hidden = false;
     successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    startTelegramRedirect();
   } catch (err) {
     alert("Yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring yoki +998 (90) 700-44-04 ga qo'ng'iroq qiling.");
     console.error('submit error:', err);
@@ -128,12 +132,47 @@ form?.addEventListener('submit', async (e) => {
 });
 
 resetBtn?.addEventListener('click', () => {
+  cancelTelegramRedirect();
   form.reset();
   form.hidden = false;
   successEl.hidden = true;
   form.querySelectorAll('.field.invalid').forEach((f) => f.classList.remove('invalid'));
   form.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
+
+function startTelegramRedirect() {
+  const secEl = document.getElementById('tgSeconds');
+  const countdownEl = document.getElementById('tgCountdown');
+  const tgBtn = document.getElementById('tgBtn');
+  if (!secEl || !countdownEl) return;
+
+  let remaining = REDIRECT_SECONDS;
+  secEl.textContent = remaining;
+
+  redirectTimer = setInterval(() => {
+    remaining -= 1;
+    if (remaining <= 0) {
+      clearInterval(redirectTimer);
+      redirectTimer = null;
+      countdownEl.textContent = "Yo'naltirilmoqda...";
+      window.location.href = TG_CHANNEL_URL;
+    } else {
+      secEl.textContent = remaining;
+    }
+  }, 1000);
+
+  // Agar foydalanuvchi tugmani bossa (yangi tabga ochiladi) — auto-redirectni bekor qilamiz
+  tgBtn?.addEventListener('click', cancelTelegramRedirect, { once: true });
+}
+
+function cancelTelegramRedirect() {
+  if (redirectTimer) {
+    clearInterval(redirectTimer);
+    redirectTimer = null;
+    const countdownEl = document.getElementById('tgCountdown');
+    if (countdownEl) countdownEl.style.display = 'none';
+  }
+}
 
 // ===== Footer year =====
 const yearEl = document.getElementById('year');
