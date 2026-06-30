@@ -65,15 +65,18 @@ export default async function handler(req, res) {
       // Lead nomi: CRM ro'yxatida darrov ko'rinishi uchun ota-ona ismi + sinf
       name: `${parentName} — ${grade}-sinf`,
       phone,
-      region: 'Veb-sayt (Saminov School)',
-      source: source || 'saminov-school-website',
+      region: 'Veb-sayt',
+      // MUHIM: CRM SOURCE_LABELS faqat aniq kalitlarni tan oladi (website → "Veb-sayt" badge).
+      // Boshqa qiymat yuborilsa, badge xom ko'rinadi.
+      source: 'website',
       extra: `Ota-ona: ${parentName} | Farzandi: ${grade}-sinf | Tel: ${phone}`,
       // Lid kartochkasida ushbu maydonlar custom_data sifatida ko'rinadi
       custom_data: {
         'Ota-ona ismi': parentName,
         'Sinf': `${grade}-sinf`,
         'Telefon': phone,
-        'Manba': 'saminov-school.vercel.app',
+        'Sayt': 'saminov-school.vercel.app',
+        'Forma manbasi': source || 'saminov-school-website',
       },
     };
 
