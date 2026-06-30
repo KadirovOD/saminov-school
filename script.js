@@ -119,7 +119,7 @@ form?.addEventListener('submit', async (e) => {
     successEl.hidden = false;
     successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (err) {
-    alert("Yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring yoki +998 (90) 123-45-67 ga qo'ng'iroq qiling.");
+    alert("Yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring yoki +998 (90) 700-44-04 ga qo'ng'iroq qiling.");
     console.error('submit error:', err);
   } finally {
     submitBtn.classList.remove('loading');
